@@ -1,5 +1,5 @@
 # Chiron
-Chiron is a tool for aligning pre-modern and literary texts with translations in multiple languages
+Chiron is a tool for aligning pre-modern and literary texts with translations in multiple languages.
 
 ## Pipeline models
 1. LaBSE, Feng et al. (2020)
