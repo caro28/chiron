@@ -32,3 +32,6 @@ Chiron is a tool for aligning pre-modern and literary texts with translations in
 
 ## Evaluation
 *Description and files coming soon: scoring functions if sentence-level ground-truth is available; chapter-level evaluation if not.*
+
+## Related experiments
+*Coming soon: folder with code, data, results of "background experiments" run on Crito and Thucydides, using LASER and LaBSE.*
