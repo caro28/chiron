@@ -32,6 +32,12 @@ Chiron is a tool for aligning pre-modern and literary texts with translations in
 
 ## Evaluation
 *Description and files coming soon: scoring functions if sentence-level ground-truth is available; chapter-level evaluation if not.*
+### Using sentence-level ground truth
+* File to run: score_all.py
+* Includes three scoring functions:
+  * Vecalign's original strict scores (Precision, Recall, F1)
+  * Chiron's new lax scores (Precision, Recall, F1)
+  * Chiron's new strict score (Accuracy only)
 
 ## Related experiments
 *Coming soon: folder with code, data, results of "background experiments" run on Crito and Thucydides, using LASER and LaBSE.*
