@@ -158,7 +158,7 @@ def _new_strict(goldalign, testalign):
 
 def _new_lax(goldalign, testalign):
     """
-    Computes tpstrict, fpstrict, tplax, fplax for gold/test alignments
+    New lax scoring: number of overlapping sentences at chunk level, after merging predicted alignments
     """
     tpstrict = 0  # true positive strict counter
     tplax = 0     # true positive lax counter
@@ -263,6 +263,11 @@ def _new_lax(goldalign, testalign):
     return np.array([tpstrict, fpstrict, tplax, fplax, fnlax, fnstrict], dtype=np.int32)
 
 def score_multiple(gold_list, test_list, value_for_div_by_0=0.0):
+    """
+    Changes from original Vecalign function:
+    1. Lax scores come from _new_lax() only
+    2. Adds new accuracy score from _new_strict()
+    """
     # accumulate counts for all gold/test files
     pcounts = np.array([0, 0, 0, 0], dtype=np.int32)
     rcounts = np.array([0, 0, 0, 0], dtype=np.int32)
