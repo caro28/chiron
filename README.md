@@ -35,3 +35,7 @@ Chiron is a tool for aligning pre-modern and literary texts with translations in
 
 ## Related experiments
 *Coming soon: folder with code, data, results of "background experiments" run on Crito and Thucydides, using LASER and LaBSE.*
+
+## Installation
+1. To use Vecalign, see list of dependencies on [Vecalign's GitHub](https://github.com/thompsonb/vecalign#build-vecalign)
+2. To use LaBSE, see instructions on [Hugging Face](https://huggingface.co/sentence-transformers/LaBSE#usage-sentence-transformers)
