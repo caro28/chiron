@@ -41,6 +41,7 @@ Chiron is a tool for aligning pre-modern and literary texts with translations in
 ### Chapter-level evaluation if sentence-level ground truth not available
 * Example file: score_vec_rslts_chapter_level.ipynb
 * Example based on aligning Thucydides' *The Peloponnesian War* against a [French translation](https://github.com/OpenGreekAndLatin/french_trans-dev/blob/master/thucydides_1863.xml)
+* *Will upload data files*
 
 ## Related experiments
 *Coming soon: folder with code, data, results of "background experiments" run on Crito and Thucydides, using LASER and LaBSE.*
