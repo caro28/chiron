@@ -31,14 +31,14 @@ consoleHandler = logging.StreamHandler()
 consoleHandler.setFormatter(logFormatter)
 logger.addHandler(consoleHandler)
 
-from dp_utils import make_alignment_types, print_alignments, read_alignments, \
+from vecalign_dp_utils import make_alignment_types, print_alignments, read_alignments, \
     read_in_embeddings, make_doc_embedding, vecalign
 
 # to use vecalign's scoring
 # from score import score_multiple, log_final_scores
 
 # to use our new scoring
-from score_newstrict_v5 import score_multiple, log_final_scores
+from score_all import score_multiple, log_final_scores
 
 
 def _main():
