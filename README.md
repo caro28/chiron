@@ -31,16 +31,16 @@ Chiron is a tool for aligning pre-modern and literary texts with translations in
 * Output: sentence alignments written to stdout. For a detailed description of the results' format, see [Vecalign's GitHub](https://github.com/thompsonb/vecalign#run-vecalign-using-provided-embeddings).
 
 ## Evaluation
-*Description and files coming soon: scoring functions if sentence-level ground-truth is available; chapter-level evaluation if not.*
 ### Using sentence-level ground truth
 * File to run: score_all.py
 * Includes three scoring functions:
-  * Vecalign's original strict scores (Precision, Recall, F1)
+  * Vecalign's original strict scores (Precision, Recall, F1). Does not include Vecalign's original lax scores.
   * Chiron's new lax scores (Precision, Recall, F1)
   * Chiron's new strict score (Accuracy only)
 
 ### Chapter-level evaluation if sentence-level ground truth not available
-* File to run: 
+* Example file: score_vec_rslts_chapter_level.ipynb
+* Example based on aligning Thucydides' *The Peloponnesian War* against a [French translation](https://github.com/OpenGreekAndLatin/french_trans-dev/blob/master/thucydides_1863.xml)
 
 ## Related experiments
 *Coming soon: folder with code, data, results of "background experiments" run on Crito and Thucydides, using LASER and LaBSE.*
