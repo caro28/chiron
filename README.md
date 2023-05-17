@@ -39,6 +39,9 @@ Chiron is a tool for aligning pre-modern and literary texts with translations in
   * Chiron's new lax scores (Precision, Recall, F1)
   * Chiron's new strict score (Accuracy only)
 
+### Chapter-level evaluation if sentence-level ground truth not available
+* File to run: 
+
 ## Related experiments
 *Coming soon: folder with code, data, results of "background experiments" run on Crito and Thucydides, using LASER and LaBSE.*
 
