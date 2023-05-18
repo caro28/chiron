@@ -1,6 +1,10 @@
 # Chiron
 Chiron is a tool for aligning pre-modern and literary texts with translations in multiple languages.
 
+## Align Texts Project
+* Create an annotated dataset using Chiron.
+* Code and data saved in [align_texts_project](https://github.com/caro28/chiron/tree/main/align_texts_project)
+
 ## Pipeline models
 1. LaBSE, Feng et al. (2020)
 * For embedding sentences
@@ -42,10 +46,6 @@ Chiron is a tool for aligning pre-modern and literary texts with translations in
 * Example file: score_vec_rslts_chapter_level.ipynb
 * Example based on aligning Thucydides' *The Peloponnesian War* against a [French translation](https://github.com/OpenGreekAndLatin/french_trans-dev/blob/master/thucydides_1863.xml)
 * *Will upload data files*
-
-## Align Texts Project
-* Create an annotated dataset using the pipeline.
-* Code and data saved in [align_texts_project](https://github.com/caro28/chiron/tree/main/align_texts_project)
 
 ## Related experiments
 *Coming soon: folder with code, data, results of "background experiments" run on Crito and Thucydides, using LASER and LaBSE.*
