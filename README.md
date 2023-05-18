@@ -2,7 +2,7 @@
 Chiron is a tool for aligning pre-modern and literary texts with translations in multiple languages.
 
 ## Align Texts Project
-* Create an annotated dataset using Chiron.
+* Create an annotated dataset using LaBSE and Vecalign.
 * Code and data saved in [align_texts_project](https://github.com/caro28/chiron/tree/main/align_texts_project)
 
 ## Pipeline models
