@@ -33,6 +33,8 @@ class BookStream(object):
                 if cite != '':
                     print('#', cite, '\n')
             case 'note':
+                # if attrib.get('type') == 'footnote':
+                #     print("# footnote")
                 self.buf += '\n'
     def end(self, elem):
         match etree.QName(elem).localname:
@@ -53,7 +55,7 @@ class BookStream(object):
     
 if __name__ == '__main__':
     ns = {'': 'http://www.tei-c.org/ns/1.0'}
-    file = "/home/craig.car/spring2023/data/align_noisy_data/thucydides/thucydides_2_1902_en.xml"
+    file = "/home/craig.car/repos/chiron/align_texts_project/data/thucydides/thucydides_1_1864_de.xml"
     
     parser = etree.XMLParser(target = BookStream())
     
