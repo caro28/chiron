@@ -10,6 +10,10 @@ from lxml import etree
 ## naive solution might be to delay until the end of the paragraph and
 ## then print the chunk,paragraph pair at once.
 
+'''
+Code from David Smith
+'''
+
 class BookStream(object):
     def __init__(self):
         self.divs = []
