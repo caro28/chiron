@@ -1,3 +1,7 @@
+## Translation Repository (links to raw text in XML)
+* Compiled by:
+* Repository available [here](https://docs.google.com/spreadsheets/d/1LesMik4qbJ1lv1rAaWuvGixreN_ZcIq6gVR4LCFwdEo/edit#gid=220286590)
+
 ## Perseus data
 Relevant files
 * david_perseus_datadump_cts-sections.jsonl.gz
