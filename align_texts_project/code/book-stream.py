@@ -33,9 +33,7 @@ class BookStream(object):
                 if cite != '':
                     print('#', cite, '\n')
             case 'note':
-                # if attrib.get('type') == 'footnote':
-                #     print("# footnote")
-                self.buf += '\n'
+                self.buf += '\n# note\n'
     def end(self, elem):
         match etree.QName(elem).localname:
             case 'div':
@@ -44,7 +42,7 @@ class BookStream(object):
                 print(self.buf.strip(), '\n')
                 self.buf = ''
             case 'note':
-                self.buf += '\n'
+                self.buf += '\n# note_end\n'
     def data(self, data):
         if self.inText:
             self.buf += re.sub(r'\s+', ' ', re.sub(r'\-\n', '', data))
