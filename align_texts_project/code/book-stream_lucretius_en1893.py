@@ -30,22 +30,25 @@ class BookStream(object):
                     level = ''
                 self.divs.append(level)
                 cite = ','.join([x for x in self.divs if x != ''])
-                # if cite != '':
-                #     print('#', cite, '\n')
-            # case 'note':
-            #     self.buf += '\n# note\n'
-            # case 'title':
-            #     self.buf += '# title\n'
+                if cite != '':
+                    ##### comment out rest of function to print without section markers #####
+                    print('#', cite, '\n')
+            case 'note':
+                self.buf += '\n# note\n'
+            case 'title':
+                self.buf += '# title\n'
     def end(self, elem):
         match etree.QName(elem).localname:
             case 'div':
                 self.divs.pop()
             case 'head' | 'p':
-                # print(self.buf.strip(), '\n# paragraph end\n')
-                print(self.buf.strip(), '\n')
+                print(self.buf.strip(), '\n# paragraph end\n')
+                ##### use line below instead to print without section markers #####
+                # print(self.buf.strip(), '\n')
                 self.buf = ''
-            # case 'note':
-            #     self.buf += '\n# note_end\n'
+            ##### comment out case "note" section below to print without section markers #####
+            case 'note':
+                self.buf += '\n# note_end\n'
             case 'title':
                 self.buf += '\n'
             #### add page numbers? code below doesn't work #####
