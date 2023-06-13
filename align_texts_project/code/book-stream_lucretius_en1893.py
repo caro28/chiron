@@ -34,6 +34,8 @@ class BookStream(object):
                     print('#', cite, '\n')
             case 'note':
                 self.buf += '\n# note\n'
+            case 'title':
+                self.buf += '# title\n'
     def end(self, elem):
         match etree.QName(elem).localname:
             case 'div':
@@ -45,6 +47,7 @@ class BookStream(object):
                 self.buf += '\n# note_end\n'
             case 'title':
                 self.buf += '\n'
+            #### add page numbers? #####
             # case 'head' | 'pb':
             #     print(self.buf.strip(), '\n')
                 # self.buf = ''
