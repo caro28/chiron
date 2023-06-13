@@ -55,7 +55,7 @@ def segment_series(txt_str, lang, stanza_model):
             series_split.append(new_sent)
         return flatten_list(series_split)
 
-def preprocess_series(txt_str, lang, stanza_model, keep_speaker_label, speaker_label_names):
+def preprocess_series(txt_str, lang, stanza_model):
     # split text into sentences
     series_split = segment_series(txt_str, lang, stanza_model)
     print("segmented str into sentences")
@@ -71,4 +71,9 @@ def preprocess_series(txt_str, lang, stanza_model, keep_speaker_label, speaker_l
     # send to list
     series_lst = list(series_df['text'])
     return series_lst
-    # return series_split
+
+def write_file(input_lst, name_out):
+    filename = name_out
+    with open(filename, 'w') as file:
+        for sentence in input_lst:
+            file.write(f"{sentence}\n")
