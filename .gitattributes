@@ -1,0 +1,4 @@
+align_texts_project/data/lucretius/lucretius_en1893_sents_overlaps.en filter=lfs diff=lfs merge=lfs -text
+align_texts_project/data/lucretius/lucretius_en1893_sents_overlaps_labse.en.emb filter=lfs diff=lfs merge=lfs -text
+align_texts_project/data/lucretius/lucretius_lat_sents_overlaps.la filter=lfs diff=lfs merge=lfs -text
+align_texts_project/data/lucretius/lucretius_lat_sents_overlaps_labse.la.emb filter=lfs diff=lfs merge=lfs -text
