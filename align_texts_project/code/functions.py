@@ -77,3 +77,35 @@ def write_file(input_lst, name_out):
     with open(filename, 'w') as file:
         for sentence in input_lst:
             file.write(f"{sentence}\n")
+
+def build_sent_to_section_dict(lst_tokenized_sents, lst_tokenized_chapts,
+                               dict_chapter_2_section):
+    """
+    Build dict of sentence idx to section name
+    """
+    sent_idx_2_section_name = {}
+    token_counter = 0 # per section/chapter
+    current_section_idx = 0
+    for idx_sent, sent in enumerate(lst_tokenized_sents):
+        token_counter += len(sent)
+        current_chapter_length = len(lst_tokenized_chapts[current_section_idx])
+        if token_counter < current_chapter_length:
+            # add sent to dict
+            sent_idx_2_section_name[idx_sent] = dict_chapter_2_section[current_section_idx]
+        elif token_counter == current_chapter_length:
+            # add sent to dict as part of current section
+            sent_idx_2_section_name[idx_sent] = dict_chapter_2_section[current_section_idx]
+            # reset token counter and current section idx for next sent iteration
+            token_counter = 0
+            current_section_idx += 1
+        else: # token_counter > current_chapter_length, i.e. we've crossed a section boundary 
+            # add sent to current section and next section
+            sent_idx_2_section_name[idx_sent] = [
+                dict_chapter_2_section[current_section_idx], 
+                dict_chapter_2_section[current_section_idx+1]
+            ]
+            # adjust token counter by only including portion of sent in new section
+            token_counter = token_counter - current_chapter_length
+            # update current section idx for next sent iteration
+            current_section_idx += 1
+    return sent_idx_2_section_name
