@@ -109,3 +109,31 @@ def build_sent_to_section_dict(lst_tokenized_sents, lst_tokenized_chapts,
             # update current section idx for next sent iteration
             current_section_idx += 1
     return sent_idx_2_section_name
+
+def concatenate_txt(txt_series):
+    '''
+    Converts to str (in case of NaN present as float) and concatenates rows 
+    into one continuous string
+    '''
+    # convert all rows to string
+    txt_series = txt_series.apply(str)
+    # join into a single string
+    return ' '.join(txt_series)
+
+def get_perseus_txt_by_book(df, cts_tag, num_books):
+    '''
+    Extract Perseus text in df by book
+    '''
+    txt_by_book = []
+    idx2book_name = {}
+    idx_counter = 0
+    for book_idx in range(1, num_books+1):
+        loc_tag = cts_tag + str(book_idx)
+        book_text = concatenate_txt(df[df['loc'].str.startswith(loc_tag)]['text'].replace('\n',' ', regex=True))
+        txt_by_book.append(book_text)
+        # add to dict. chap name format: "booknum"
+        book_name = str(book_idx)
+        idx2book_name[idx_counter] = book_name
+        idx_counter += 1
+    return txt_by_book, idx2book_name
+
