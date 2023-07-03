@@ -157,8 +157,11 @@ def score_fr_sents(fr2el_sent_aligns_dict, fr_sent2section_name_dict,
         # TODO: necessary? to skip null-null alignments ("null" will not appear as key in dict)
         if str(fr_sent_idx) in fr_sent2section_name_dict.keys():
             # get fr sent chapter (keys are str). only 1 chapter per french sent
-            fr_sent_chapter = list(fr_sent2section_name_dict[str(fr_sent_idx)])
+            fr_sent_chapter = fr_sent2section_name_dict[str(fr_sent_idx)]
             print(f"fr chapter is {fr_sent_chapter}")
+            # in case tgt sentence belongs to more than one section
+            if isinstance(fr_sent_chapter, str):
+                fr_sent_chapter = [fr_sent_chapter]
 
             for tgt_chapter in fr_sent_chapter:
                 if tgt_chapter in fr_extraneous_chapter_names:
