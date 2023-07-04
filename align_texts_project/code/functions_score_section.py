@@ -149,7 +149,6 @@ def score_fr_sents(fr2el_sent_aligns_dict, fr_sent2section_name_dict,
     text2null_lst = []
 
     for fr_sent_idx in fr2el_sent_aligns_dict.keys():
-    # for fr_sent_idx in [0,1000,10000]:
         # get grk sentences aligned to it
         el_aligned_sents = fr2el_sent_aligns_dict[fr_sent_idx]
         print(f"el aligned sents is {el_aligned_sents}")
@@ -181,13 +180,6 @@ def score_fr_sents(fr2el_sent_aligns_dict, fr_sent2section_name_dict,
                         # no greek sents are null
                         extraneous2text += 1
 
-                    # fr_extraneous2null_correct += el_counter/len(el_aligned_sents)
-                    # fr_extraneous2text += (len(el_aligned_sents) - el_counter)/len(el_aligned_sents)
-                        # if item == "null":
-                        #     fr_extraneous2null_correct += 1
-                        # else:
-                        #     fr_extraneous2text += 1
-
                 else: # compare fr and grk chapters
                     el_aligned_chapters = set()
                     el_text2text_correct_counter = 0
@@ -197,9 +189,6 @@ def score_fr_sents(fr2el_sent_aligns_dict, fr_sent2section_name_dict,
                         if item == "null":
                             text2null_incorrect += 1
                             text2null_lst.append(fr_sent_idx)
-                        # if item == "null":
-                        #     fr_text2null += 1
-                        #     fr_text2null_lst.append(fr_sent_idx)
                         else:
                             # get chapters of el sent (keys are str)
                             if isinstance(el_sent2section_name_dict[str(item)], list):
@@ -213,10 +202,8 @@ def score_fr_sents(fr2el_sent_aligns_dict, fr_sent2section_name_dict,
                     for item in el_aligned_chapters:
                         if tgt_chapter == item:
                             el_text2text_correct_counter += 1
-                            # fr_text2text_correct += 1
                         else:
                             el_text2text_incorrect_counter += 1
-                            # fr_text2text_incorrect += 1
 
                     if el_text2text_correct_counter == len(el_aligned_sents):
                         text2text_tpstrict += 1
@@ -225,9 +212,6 @@ def score_fr_sents(fr2el_sent_aligns_dict, fr_sent2section_name_dict,
                     else:
                         text2text_incorrect += 1
                         text2text_incorrect_lst.append(fr_sent_idx)
-
-                    # fr_text2text_correct += el_counter_text2text_correct/(len(el_aligned_sents))
-                    # fr_text2text_incorrect += el_counter_text2text_incorrect/(len(el_aligned_sents))
 
     # remove text2null from text2text_incorrect_lst
     text2null_lst = set(text2null_lst)
