@@ -123,7 +123,8 @@ def build_tgt_2_src_dict(alignments_lst):
     '''
     If alignment is null on one side, inserts "null" 
     '''
-    tgt_id_to_src_ids = defaultdict(set)
+    # tgt_id_to_src_ids = defaultdict(set)
+    tgt_id_to_src_ids = {}
     for src, tgt in alignments_lst:
         if src == []:
             src = ["null"]
@@ -131,7 +132,11 @@ def build_tgt_2_src_dict(alignments_lst):
             tgt = ["null"]
         for tgt_id in tgt:
             for src_id in src:
-                tgt_id_to_src_ids[tgt_id].add(src_id)
+                if tgt_id in tgt_id_to_src_ids.keys():
+                    tgt_id_to_src_ids[tgt_id].add(src_id)
+                else:
+                    tgt_id_to_src_ids[tgt_id] = {src_id}
+                # tgt_id_to_src_ids[tgt_id].add(src_id)
     return tgt_id_to_src_ids
 
 def score_fr_sents(fr2el_sent_aligns_dict, fr_sent2section_name_dict,
