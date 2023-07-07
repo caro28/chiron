@@ -30,13 +30,15 @@ class BookStream(object):
                     level = ''
                 self.divs.append(level)
                 cite = ','.join([x for x in self.divs if x != ''])
-                if cite != '':
-                    ##### comment out rest of function to print without section markers #####
-                    print('#@$%', cite, '#@$%\n')
+                ##### comment out if statement to print without section markers #####
+                # if cite != '':
+                    # print('#@$%', cite, '#@$%\n')
             case 'note':
-                self.buf += '\n#@$%note#@$%'
+                # self.buf += '\n#@$%note#@$%'
+                self.buf += '\n'
             case 'title':
-                self.buf += '#@$%title#@$%'
+                # self.buf += '#@$%title#@$%'
+                self.buf += '\n'
     def end(self, elem):
         match etree.QName(elem).localname:
             case 'div':
@@ -48,7 +50,8 @@ class BookStream(object):
                 self.buf = ''
             ##### comment out case "note" section below to print without section markers #####
             case 'note':
-                self.buf += '\n#@$%note_end#@$%'
+                # self.buf += '\n#@$%note_end#@$%'
+                self.buf += '\n'
             case 'title':
                 self.buf += '\n'
             #### add page numbers? code below doesn't work #####
