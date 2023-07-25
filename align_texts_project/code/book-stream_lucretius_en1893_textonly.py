@@ -36,20 +36,21 @@ class BookStream(object):
             case 'note':
                 # self.buf += '\n#@$%note#@$%'
                 # self.buf += '\n'
-                self.inText = False
-            case 'title':
+                if attrib.get('type', '') == 'correspondsTo':
+                    print("$$$$$$$$$$")
+            # case 'title':
                 # self.buf += '#@$%title#@$%'
                 # self.buf += '\n'
-                self.inText = False
+                # self.inText = False
     def end(self, elem):
         match etree.QName(elem).localname:
             case 'div':
                 self.divs.pop()
-            case 'head' | 'p':
+            # case 'head' | 'p':
                 # print(self.buf.strip(), '\n#@$%paragraph end#@$%')
                 ##### use line below instead to print without section markers #####
-                print(self.buf.strip(), '\n')
-                self.buf = ''
+                # print(self.buf.strip(), '\n')
+                # self.buf = ''
             ##### comment out case "note" section below to print without section markers #####
             # case 'note':
             #     # self.buf += '\n#@$%note_end#@$%'
