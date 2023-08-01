@@ -137,6 +137,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # load and resize embeddings
+    ## code from LASER: https://github.com/facebookresearch/LASER/tree/main/tasks/embed#output-format
     dim = args.dim_embed
     src_embeddings = np.fromfile(args.src_embed, dtype=np.float32, count=-1)
     tgt_embeddings = np.fromfile(args.tgt_embed, dtype=np.float32, count=-1)
