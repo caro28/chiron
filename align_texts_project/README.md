@@ -1,1 +1,1 @@
-# Alignment Project: Use pipeline to build annotated dataset
+# Test Pipeline on Crito, Lucretius, Thucydides
