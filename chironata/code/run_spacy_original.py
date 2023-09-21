@@ -52,28 +52,29 @@ def write_file(input_lst, name_out):
             file.write(f"{sentence}\n")
 
 if __name__ == '__main__':
-    file = sys.argv[2]
+    french_par_dir = "/home/dasmith/work/corpora/perseus/proc/french_trans-dev/"
     spacy_fr_sm = spacy.load("fr_core_news_sm")
     spacy_fr_sm.add_pipe("language_detector")
+    for file in glob.glob(french_par_dir + r'/*.par'):
+        print(f"working on file {file}")
+        ##TODO: check file concatenation works
+        text_par = load_txt_as_lst(file)
 
-    ##TODO: check file concatenation works
-    text_par = load_txt_as_lst(file)
+        # run spacy and extract kept text, scores per par, and excluded text
+        lang_ = "fr"
+        lang_text, par_scores, excl_text = apply_spacy(spacy_fr_sm, text_par, lang_)
 
-    # run spacy and extract kept text, scores per par, and excluded text
-    lang_ = "fr"
-    lang_text, par_scores, excl_text = apply_spacy(spacy_fr_sm, text_par, lang_)
+        # get clean text and metadata dicts
+        clean_text_, idx2metadata_ = clean_kept(lang_text)
 
-    # get clean text and metadata dicts
-    clean_text_, idx2metadata_ = clean_kept(lang_text)
+        # write clean text to file
+        path_out_txt = "/home/craig.car/fall2023/"+file[40:-4]+"_cleaned.txt"
+        write_file(clean_text_, path_out_txt)
 
-    # write clean text to file
-    path_out_txt = "/home/craig.car/repos/chiron/chironata/code/test/"+file[40:-4]+"_cleaned.txt"
-    write_file(clean_text_, path_out_txt)
-
-    # save metadata dict to file
-    path_out_dict = "/home/craig.car/repos/chiron/chironata/code/test/"+file[40:-4]+"_metadata.json"
-    with open(path_out_dict, 'w') as fp:
-        json.dump(idx2metadata_, fp)
+        # save metadata dict to file
+        path_out_dict = "/home/craig.car/fall2023/"+file[40:-4]+"_metadata.json"
+        with open(path_out_dict, 'w') as fp:
+            json.dump(idx2metadata_, fp)
 
 
 
