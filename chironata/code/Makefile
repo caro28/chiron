@@ -9,22 +9,18 @@ SRC=french_trans-dev
 .SECONDARY:
 
 # xml -> par only
-proc.done:	$(patsubst %,proc/%,$(patsubst %.xml,%.par,$(shell find $(SRC) -name '*.xml')))
-	touch $@
-
+# proc.done:	$(patsubst %,proc/%,$(patsubst %.xml,%.par,$(shell find $(SRC) -name '*.xml')))
 # xml -> par -> txt
-# proc.done:	$(patsubst %,proc/%,$(patsubst %.xml,%.txt,$(shell find $(SRC) -name '*.xml')))
-
-test.done:	$(patsubst %,test/%,$(patsubst %.par,%.txt,$(shell find $(./proc/french_trans-dev) -name '*.par')))
+proc.done:	$(patsubst %,proc/%,$(patsubst %.xml,%.txt,$(shell find $(SRC) -name '*.xml')))
 	touch $@
+# test.done:	$(patsubst %,test/%,$(patsubst %.par,%.txt,$(shell find $(proc/french_trans-dev) -name '*.par')))
 
 proc/%.par:	%.xml
 	mkdir -p $(dir $@)
 	$(call slurm_run,./book-stream.py '$<' > '$@')
 
 # # # TODO: add lang rules here (with lang id)
-test/%.txt:	%.par
-	mkdir -p $(dir $@)
+proc/french_trans-dev/%.txt:	proc/french_trans-dev/%.par
 	$(call slurm_run,./run_spacy.py '$<' > '$@')
 
 # proc/%.txt:	%.xml

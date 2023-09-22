@@ -52,7 +52,7 @@ def write_file(input_lst, name_out):
             file.write(f"{sentence}\n")
 
 if __name__ == '__main__':
-    file = sys.argv[2]
+    file = sys.argv[1]
     spacy_fr_sm = spacy.load("fr_core_news_sm")
     spacy_fr_sm.add_pipe("language_detector")
 
@@ -66,12 +66,12 @@ if __name__ == '__main__':
     # get clean text and metadata dicts
     clean_text_, idx2metadata_ = clean_kept(lang_text)
 
-    # write clean text to file
-    path_out_txt = "/home/craig.car/repos/chiron/chironata/code/test/"+file[40:-4]+"_cleaned.txt"
-    write_file(clean_text_, path_out_txt)
+    # print clean text to stdout
+    for sentence in clean_text_:
+        print(sentence)
 
     # save metadata dict to file
-    path_out_dict = "/home/craig.car/repos/chiron/chironata/code/test/"+file[40:-4]+"_metadata.json"
+    path_out_dict = "/home/craig.car/repos/chiron/chironata/code/"+file[40:-4]+"_metadata.json"
     with open(path_out_dict, 'w') as fp:
         json.dump(idx2metadata_, fp)
 
