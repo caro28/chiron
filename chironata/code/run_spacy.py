@@ -56,7 +56,6 @@ if __name__ == '__main__':
     spacy_fr_sm = spacy.load("fr_core_news_sm")
     spacy_fr_sm.add_pipe("language_detector")
 
-    ##TODO: check file concatenation works
     text_par = load_txt_as_lst(file)
 
     # run spacy and extract kept text, scores per par, and excluded text
@@ -71,7 +70,7 @@ if __name__ == '__main__':
         print(sentence)
 
     # save metadata dict to file
-    path_out_dict = "/home/craig.car/repos/chiron/chironata/code/"+file[40:-4]+"_metadata.json"
+    path_out_dict = "/home/craig.car/repos/chiron/chironata/code/proc/french_trans-dev/"+file[40:-4]+"_metadata.json"
     with open(path_out_dict, 'w') as fp:
         json.dump(idx2metadata_, fp)
 
