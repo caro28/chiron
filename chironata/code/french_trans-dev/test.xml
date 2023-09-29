@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>L'orestie trilogie tragique d’Eschyle</title>
+				<sponsor>University of Leipzig</sponsor>
+				<funder>European Social Fund Saxony</funder>
+				<principal>Gregory Crane</principal>
+				<meeting/>
+				<respStmt>
+					<persName xml:id="DDD">Digital Divide Data</persName>
+					<resp>Corrected and encoded the text</resp>
+				</respStmt>
+				<respStmt>
+					<persName>Greta Franzini</persName>
+					<resp>Project Manager (University of Leipzig)</resp>
+				</respStmt>
+				<respStmt>
+					<persName>Frederik Baumgardt</persName>
+					<resp>Technical Manager (University of Leipzig)</resp>
+				</respStmt>
+				<respStmt>
+					<persName>Simona Stoyanova</persName>
+					<resp>Project Assistant (University of Leipzig)</resp>
+				</respStmt>
+				<respStmt>
+					<persName>Bruce Robertson</persName>
+					<resp>Technical Advisor</resp>
+				</respStmt>
+				<respStmt>
+					<persName>Tabea Selle</persName>
+					<resp>Student Assistant</resp>
+				</respStmt>
+			</titleStmt>
+			<publicationStmt>
+				<authority>University of Leipzig</authority>
+				<idno type="filename">aeschylus_1863.xml</idno>
+				<availability>
+					<p>Available under a Creative Commons Attribution-ShareAlike 4.0 International License</p>
+				</availability>
+				<date>2014</date>
+				<publisher>University of Leipzig</publisher>
+				<pubPlace>Germany</pubPlace>
+			</publicationStmt>
+			<sourceDesc>
+				<listBibl xml:lang="fr">
+					<biblStruct>
+						<monogr>
+							<title>L'orestie trilogie tragique d’Eschyle</title>
+							<editor>
+								<persName>
+									<name xml:lang="fr">Paul Mesnard</name>
+								</persName>
+							</editor>
+							<author ref="urn:cts:greekLit:tlg0085">Aeschylus</author>
+							<imprint>
+								<pubPlace>Paris</pubPlace>
+								<publisher>Librairie de L. Hachette et Cie Boulevard Saint-Germain, No 77</publisher>
+								<date>1863</date>
+							</imprint>
+						</monogr>
+						<ref target="http://hdl.handle.net/2027/hvd.32044085081941">HathiTrust</ref>
+					</biblStruct>
+				</listBibl>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<p>Text encoded in accordance with the latest EpiDoc standards (January 2014)</p>
+		</encodingDesc>
+		<profileDesc>
+			<langUsage>
+				<language ident="grc">Greek</language>
+				<language ident="fr">French</language>
+			</langUsage>
+		</profileDesc>
+		<revisionDesc>
+			<change when="2014-11-21" who="dwp"/>
+		</revisionDesc>
+	</teiHeader>
+	<text>
+		<body>
+			<div type="bibliography">
+				<listBibl>
+					<bibl/>
+				</listBibl>
+			</div>
+			<div type="edition" subtype="volume" n="" xml:space="preserve">
+				<div type="textpart" subtype="book" n="1">
+					<pb n=""/>
+					<head>
+						<title>AVANT-PROPOS</title>
+					</head>
+					<div type="textpart" subtype="chapter" n="1">
+						<pb n=""/>
+						<head>
+							<title>AVANT-PROPOS.</title>
+						</head>
+						<p>D’un admirable chef-d’œuvre, je n’ai pris, je
+le sens, qu’une faible empreinte. Moulé sur un
+marbre éclatant, radieux, vivant, ceci est un pau-
+vre plâtre, sans transparence et sans lumière, et
+dont les maladroites aspérités sont trop visibles.
+Mais le modèle est si beau que, même à ses plus
+imparfaites copies, il est difficile qu’il ne commu-
+nique pas çà et là quelque chose de sa beauté.</p></div>
+					<div type="textpart" subtype="chapter" n="2">
+						<p>Ce que je tente aujourd’hui, plusieurs l’ont tenté
+avant moi; on a généralement loué leur entreprise.
+Chez quelques-uns même, ce n’est pas seulement
+au courageux effort que de bons juges ont applaudi.
+Où l’espoir de réussir toujours serait chimérique,
+ils ont eu du moins le bonheur de réussir souvent.
+La traduction des</p>
+					</div>
+				</div>
+			</div>
+			<div type="textpart" subtype="back">
+				<pb n=""/>
+				<p>TABLE DES MATIÈRES.</p>
+				<p>Pages.</p>
+				<p>AVANT-PROPOS 3</p>
+				<p>INTRODUCTION 23</p>
+				<p>L'ORESTIE.</p>
+				<p>Agamemnon 105</p>
+				<p>Notes sur Agamemnon 177</p>
+				<p>Les Choéphores 195</p>
+				<p>Notes sur les Choéphores 245</p>
+				<p>Les Euménides 253</p>
+				<p>Notes sur les Euménides 301</p>
+				<p>FIN DE LA TABLE</p>
+			</div>
+		</body>
+	</text>
+</TEI>
