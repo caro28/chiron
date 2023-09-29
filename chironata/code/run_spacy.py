@@ -2,7 +2,7 @@
 
 import sys
 import json
-import glob
+# import glob
 import spacy
 import spacy_fastlang
 
@@ -45,11 +45,11 @@ def clean_kept(kept_text):
 
     return text_clean, idx2metadata
 
-def write_file(input_lst, name_out):
-    filename = name_out
-    with open(filename, 'w') as file:
-        for sentence in input_lst:
-            file.write(f"{sentence}\n")
+# def write_file(input_lst, name_out):
+#     filename = name_out
+#     with open(filename, 'w') as file:
+#         for sentence in input_lst:
+#             file.write(f"{sentence}\n")
 
 if __name__ == '__main__':
     file = sys.argv[1]
