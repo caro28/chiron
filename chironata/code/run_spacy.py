@@ -70,7 +70,7 @@ if __name__ == '__main__':
         print(sentence)
 
     # save metadata dict to file
-    path_out_dict = "/home/craig.car/repos/chiron/chironata/code/proc/french_trans-dev/"+"_metadata.json"
+    path_out_dict = "/home/craig.car/repos/chiron/chironata/code/proc/french_trans-dev/"+str(sys.argv[1])[22:-4]+"_metadata.json"
     with open(path_out_dict, 'w') as fp:
         json.dump(idx2metadata_, fp)
 
