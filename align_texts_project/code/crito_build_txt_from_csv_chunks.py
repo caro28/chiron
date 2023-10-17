@@ -11,6 +11,7 @@ def check_empty_rows(text_series):
     for idx, chunk in enumerate(text_series):
         if chunk == "":
             idx_delete.append(idx)
+            print(idx)
     return idx_delete
     
 
@@ -45,10 +46,12 @@ if __name__ == "__main__":
     print("loading raw data csv")
     # load raw data csv
     path_in = args.csv_path
-    df = pd.read_csv(path_in)
-
+    df = pd.read_json(path_in)
+    
     # fill NAN with empty strings
     df = df.fillna("")
+
+    print(df.shape)
 
     # get src and tgt series
     src_col = str(args.series_cols[0])
