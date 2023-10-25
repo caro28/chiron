@@ -23,5 +23,8 @@ proc/french_trans-dev/%.txt:	proc/french_trans-dev/%.par
 proc/french_trans-dev/%_sents.txt:	proc/french_trans-dev/%.txt
 	$(call slurm_run,./segment_sents.py $< > $@)
 
-proc/french_trans-dev/%.emb:	proc/french_trans-dev/%_sents.txt
+proc/french_trans-dev/%_overlaps.fr:	proc/french_trans-dev/%_sents.txt
+	$(call labse_run,./overlap.py $< > $@)
+
+proc/french_trans-dev/%.emb:	proc/french_trans-dev/%_overlaps.fr
 	$(call labse_run,./run_labse.py $< > $@)
