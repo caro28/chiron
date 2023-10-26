@@ -33,9 +33,12 @@ def go(output_file, input_files, num_overlaps):
     output = list(output)
     output.sort()
 
-    with open(output_file, 'wt', encoding="utf-8") as fout:
-        for line in output:
-            fout.write(line + '\n')
+    ## edit for Makefile pipeline: printing to sdout instead
+    for line in output:
+        print(line)
+    # with open(output_file, 'wt', encoding="utf-8") as fout:
+    #     for line in output:
+    #         fout.write(line + '\n')
 
 
 def _main():
@@ -57,9 +60,11 @@ def _main():
     #    input_files=args.inputs)
     
     ## modified for Chiron to fit into Makefile workflow ##
-    inputs = sys.argv[1]
+    inputs = [sys.argv[1]]
+    print(inputs)
     num_overlaps = 10
-    output = "/home/craig.car/repos/chiron/chironata/code/proc/french_trans-dev/"+str(sys.argv[1])[22:-4]+"_overlaps.fr"
+    ## don't need output because printing to file
+    output = ""
 
     go(output_file=output,
        num_overlaps=num_overlaps,

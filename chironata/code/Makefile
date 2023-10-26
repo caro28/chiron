@@ -20,11 +20,11 @@ proc/%.par:	%.xml
 proc/french_trans-dev/%.txt:	proc/french_trans-dev/%.par
 	$(call slurm_run,./run_spacy.py $< > $@)
 
-proc/french_trans-dev/%_sents.txt:	proc/french_trans-dev/%.txt
+proc/french_trans-dev/%.sents:	proc/french_trans-dev/%.txt
 	$(call slurm_run,./segment_sents.py $< > $@)
 
-proc/french_trans-dev/%_overlaps.fr:	proc/french_trans-dev/%_sents.txt
+proc/french_trans-dev/%.overlaps:	proc/french_trans-dev/%.sents
 	$(call labse_run,./overlap.py $< > $@)
 
-proc/french_trans-dev/%.emb:	proc/french_trans-dev/%_overlaps.fr
+proc/french_trans-dev/%.emb:	proc/french_trans-dev/%.overlaps
 	$(call labse_run,./run_labse.py $< > $@)
