@@ -6,11 +6,11 @@ slurm_run = srun --time 1-0 -p ${QUEUE} -N 1 -c $(SWORKERS) --mem=$(SMEM)G bash 
 labse_run = srun --time 1-0 -p ${QUEUE} -N 1 -c $(SWORKERS) --mem=$(SMEM)G bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate labse_vec_pipeline; $(1)";
 
 # SRC=french_trans-dev german_trans-dev italian_trans-dev
-SRC=french_trans-dev
+SRC_trans=french_trans-dev
 
 .SECONDARY:
 
-proc.done:	$(patsubst %,proc/%,$(patsubst %.xml,%.emb,$(shell find $(SRC) -name '*.xml')))
+proc.done:	$(patsubst %,proc/%,$(patsubst %.xml,%_emb.dummy,$(shell find $(SRC_trans) -name '*.xml')))
 	touch $@
 
 proc/%.par:	%.xml
@@ -26,5 +26,5 @@ proc/french_trans-dev/%.sents:	proc/french_trans-dev/%.txt
 proc/french_trans-dev/%.overlaps:	proc/french_trans-dev/%.sents
 	$(call labse_run,./overlap.py $< > $@)
 
-proc/french_trans-dev/%.emb:	proc/french_trans-dev/%.overlaps
+proc/french_trans-dev/%_emb.dummy:	proc/french_trans-dev/%.overlaps
 	$(call labse_run,./run_labse.py $< > $@)

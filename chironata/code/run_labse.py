@@ -33,6 +33,11 @@ if __name__ == "__main__":
     # get embeddings
     model = SentenceTransformer('sentence-transformers/LaBSE')
     labse_embeds = build_embeddings_huggingface(txt_lst, model)
-        
+    # path out for real file with embeds
+    path_out = "/home/craig.car/repos/chiron/chironata/code/proc/french_trans-dev/"+str(sys.argv[1])[22:-9]+".emb"
+
+    write_to_file(labse_embeds,path_out)
+
+    # for _emb.dummy file
     for embed in labse_embeds:
        print("have embed")
