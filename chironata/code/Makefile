@@ -6,7 +6,7 @@ slurm_run = srun --time 1-0 -p ${QUEUE} -N 1 -c $(SWORKERS) --mem=$(SMEM)G bash 
 labse_run = srun --time 1-0 -p ${QUEUE} -N 1 -c $(SWORKERS) --mem=$(SMEM)G bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate labse_vec_pipeline; $(1)";
 
 # SRC=french_trans-dev german_trans-dev italian_trans-dev
-SRC_trans=french_trans-dev
+SRC_trans=french_trans-dev source_texts
 
 .SECONDARY:
 
