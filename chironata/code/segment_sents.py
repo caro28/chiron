@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-import re
-import sys
+import os, sys
 import stanza
 
 import pandas as pd
@@ -9,7 +8,7 @@ import pandas as pd
 from itertools import chain
 
 from functions import (
-    load_txt_as_lst, run_stanza, split_txt, flatten_list)
+    load_txt_as_lst, run_stanza, split_txt, flatten_list, write_file)
 
 
 def segment_series(txt_str, lang, model):
@@ -58,16 +57,24 @@ def preprocess_series(txt_lst, lang, model):
 if __name__ == "__main__":
     # load file
     file = sys.argv[1]
-    # convert to list
+    # convert to list (src files will have length 1)
     text_lst = load_txt_as_lst(file)
 
-     # load stanza model
-    lang = "fr"
-    stanza_model = stanza.Pipeline(lang=lang, processors='tokenize')
+    # set lang for files from src_data dir
+    if "greek" in sys.argv[1]:
+        lang = "el"
+        stanza_model = ""
+    else:
+        lang = sys.argv[2]
+        # load stanza model
+        stanza_model = stanza.Pipeline(lang=lang, processors='tokenize')
+    
+    print(f"lang is {lang}")
 
     # preprocess text
     text_sents = preprocess_series(text_lst, lang, stanza_model)
     
-    # print segmented text to stdout
-    for sentence in text_sents:
-        print(sentence)
+    # write to file as .sents
+    prefix = os.path.splitext(file)[0]
+    path_out = prefix+".sents"
+    write_file(text_sents, path_out)

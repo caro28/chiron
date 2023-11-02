@@ -67,7 +67,9 @@ if __name__ == '__main__':
     
     parser = etree.XMLParser(target = BookStream())
     
-    result = etree.parse(sys.argv[1], parser)
+    with open('/scratch/craig.car/test.par', 'w') as sys.stdout:
+        result = etree.parse(sys.argv[1], parser)
 
     # file = "/home/dasmith/work/corpora/perseus/french_trans-dev/aeschylus_1863.xml"
-    # result = etree.parse(file, parser)
+    # with open('/scratch/craig.car/test.par', 'w') as sys.stdout:
+    #     result = etree.parse(file, parser)

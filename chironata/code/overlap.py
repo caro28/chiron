@@ -16,7 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-import sys
+import sys, os
 # import argparse
 
 from vecalign_dp_utils import yield_overlaps
@@ -33,12 +33,9 @@ def go(output_file, input_files, num_overlaps):
     output = list(output)
     output.sort()
 
-    ## edit for Makefile pipeline: printing to sdout instead
-    for line in output:
-        print(line)
-    # with open(output_file, 'wt', encoding="utf-8") as fout:
-    #     for line in output:
-    #         fout.write(line + '\n')
+    with open(output_file, 'wt', encoding="utf-8") as fout:
+        for line in output:
+            fout.write(line + '\n')
 
 
 def _main():
@@ -59,12 +56,12 @@ def _main():
     #    num_overlaps=args.num_overlaps,
     #    input_files=args.inputs)
     
-    ## modified for Chiron to fit into Makefile workflow ##
+    ## modified for Chiron ##
     inputs = [sys.argv[1]]
     print(inputs)
     num_overlaps = 10
-    ## don't need output because printing to file
-    output = ""
+    prefix = os.path.splitext(sys.argv[1])[0]
+    output = prefix+".overlaps"
 
     go(output_file=output,
        num_overlaps=num_overlaps,
