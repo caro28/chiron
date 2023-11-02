@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import re
-import sys
+import sys, os
 from lxml import etree
 
 ## This code prints out one paragraph per line, with the associated
@@ -67,7 +67,8 @@ if __name__ == '__main__':
     
     parser = etree.XMLParser(target = BookStream())
     
-    with open('/scratch/craig.car/test.par', 'w') as sys.stdout:
+    prefix = os.path.splitext(sys.argv[1])[0]
+    with open(prefix+".par", 'w') as sys.stdout:
         result = etree.parse(sys.argv[1], parser)
 
     # file = "/home/dasmith/work/corpora/perseus/french_trans-dev/aeschylus_1863.xml"

@@ -41,7 +41,7 @@ def clean_par(pars_lst, spacy_model, lang):
 
 if __name__ == '__main__':
     file = sys.argv[1]
-    spacy_model_ = sys.argv[2]
+    spacy_model_ = spacy.load(str(sys.argv[2]))
     spacy_model_.add_pipe("language_detector")
 
     text_par = load_txt_as_lst(file)
