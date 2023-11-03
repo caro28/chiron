@@ -11,7 +11,8 @@ params = {
 }
 
 slurm_run = 'srun --time 1-0 -p {QUEUE} -N 1 -c {SWORKERS} --mem={SMEM}G bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate use_lxml; {command};"'
-labse_run = 'srun --time 1-0 -p {QUEUE} -N 1 -c {SWORKERS} --mem={SMEM}G bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate labse_vec_pipeline; {command};"'
+# labse_run = 'srun --time 1-0 -p {QUEUE} -N 1 -c {SWORKERS} --mem={SMEM}G bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate labse_vec_pipeline; {command};"'
+labse_run = 'srun --partition=gpu --nodes=1 --pty --gres=gpu:v100-sxm2 --ntasks=1 --mem=4GB --time=01:00:00 /bin/bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate labse_vec_pipeline; {command};"'
 
 # for path in tqdm(glob.iglob("/scratch/craig.car/src_data/*.txt")):
 #     prefix = os.path.splitext(path)[0]
@@ -31,7 +32,7 @@ labse_run = 'srun --time 1-0 -p {QUEUE} -N 1 -c {SWORKERS} --mem={SMEM}G bash -c
     
 #     break
 
-for path in tqdm(glob.iglob("/scratch/craig.car/french_trans-dev/*.xml")):
+for path in glob.iglob("/scratch/craig.car/french_trans-dev/*.xml"):
     prefix = os.path.splitext(path)[0]
     lang = "fr"
 
@@ -54,6 +55,7 @@ for path in tqdm(glob.iglob("/scratch/craig.car/french_trans-dev/*.xml")):
     
     #Step 3: Embedder
     params['command'] = f'./run_labse.py {prefix+".overlaps"}'
+    print(labse_run.format(**params))
     subprocess.run(labse_run.format(**params), shell=True)
 
     break 
