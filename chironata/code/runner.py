@@ -10,52 +10,61 @@ params = {
     'SMEM':10
 }
 
-slurm_run = 'srun --time 1-0 -p {QUEUE} -N 1 -c {SWORKERS} --mem={SMEM}G bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate use_lxml; {command};"'
-# labse_run = 'srun --time 1-0 -p {QUEUE} -N 1 -c {SWORKERS} --mem={SMEM}G bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate labse_vec_pipeline; {command};"'
+# slurm_run = 'srun --time 1-0 -p {QUEUE} -N 1 -c {SWORKERS} --mem={SMEM}G bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate use_lxml; {command};"'
+slurm_run = 'srun --time 1-0 --partition=short --nodes=1 --pty --mem=4G --time=00:30:00 /bin/bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate use_lxml; {command};"'
 labse_run = 'srun --partition=gpu --nodes=1 --pty --gres=gpu:v100-sxm2 --ntasks=1 --mem=4GB --time=01:00:00 /bin/bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate labse_vec_pipeline; {command};"'
 
-# for path in tqdm(glob.iglob("/scratch/craig.car/src_data/*.txt")):
-#     prefix = os.path.splitext(path)[0]
-#     lang = "src"
+for path in tqdm(glob.iglob("/scratch/craig.car/src_data/*.txt")):
+    prefix = os.path.splitext(path)[0]
+    lang = "src"
     
-#     # Step 1: Sentence Segmentation
-#     params['command'] = f'./segment_sents.py {path} {lang}'
-#     subprocess.run(slurm_run.format(**params),shell=True)
+    # # Step 1: Sentence Segmentation
+    if os.path.isfile(prefix+".sents") == False:
+        params['command'] = f'./segment_sents.py {path} {lang}'
+        print(f'started a run on file {prefix}')
+        subprocess.run(slurm_run.format(**params),shell=True)
     
-#     # Step 2: Overlap builder
-#     params['command'] = f'./overlap.py {prefix+".sents"}'
-#     subprocess.run(labse_run.format(**params), shell=True)
+    # # Step 2: Overlap builder
+    if os.path.isfile(prefix+".overlaps") == False:
+        params['command'] = f'./overlap.py {prefix+".sents"}'
+        print("building overlaps")
+        subprocess.run(labse_run.format(**params), shell=True)
     
-#     # Step 3: Embedder
-#     params['command'] = f'./run_labse.py {prefix+".overlaps"}'
-#     subprocess.run(labse_run.format(**params), shell=True)
-    
-#     break
-
-for path in glob.iglob("/scratch/craig.car/french_trans-dev/*.xml"):
+    # # Step 3: Embedder
+    if os.path.isfile(prefix+".emb") == False:
+        params['command'] = f'./run_labse.py {prefix+".overlaps"}'
+        print('labse run')
+        subprocess.run(labse_run.format(**params), shell=True)
+        
+for path in tqdm(glob.iglob("/scratch/craig.car/french_trans-dev/*.xml")):
     prefix = os.path.splitext(path)[0]
     lang = "fr"
+    spacy_model_ = "fr_core_news_sm"
 
-    # # Step 1: Extract from XML
-    # params['command'] = f'./book-stream.py {path}'
-    # subprocess.run(slurm_run.format(**params),shell=True)
+    print('should not have run')
 
-    # # Step 2: Clean XML output
-    # spacy_model_ = "fr_core_news_sm"
-    # params['command'] = f'./clean_par.py {prefix+".par"} {spacy_model_} {lang}'
-    # subprocess.run(slurm_run.format(**params),shell=True)
+    # Step 1: Extract from XML
+    if os.path.isfile(prefix+".par") == False:
+        params['command'] = f'./book-stream.py {path}'
+        subprocess.run(slurm_run.format(**params),shell=True)
 
-    # # Step 3: Sentence Segmentation
-    # params['command'] = f'./segment_sents.py {prefix+".txt"} {lang}'
-    # subprocess.run(slurm_run.format(**params),shell=True)
+    # Step 2: Clean XML output
+    if os.path.isfile(prefix+".txt") == False:
+        params['command'] = f'./clean_par.py {prefix+".par"} {spacy_model_} {lang}'
+        subprocess.run(slurm_run.format(**params),shell=True)
 
-    # # Step 2: Overlap builder
-    # params['command'] = f'./overlap.py {prefix+".sents"}'
-    # subprocess.run(labse_run.format(**params), shell=True)
+    # Step 3: Sentence Segmentation
+    if os.path.isfile(prefix+".sents") == False:
+        params['command'] = f'./segment_sents.py {prefix+".txt"} {lang}'
+        subprocess.run(slurm_run.format(**params),shell=True)
+
+    # Step 2: Overlap builder
+    if os.path.isfile(prefix+".overlaps") == False:
+        params['command'] = f'./overlap.py {prefix+".sents"}'
+        subprocess.run(labse_run.format(**params), shell=True)
     
     #Step 3: Embedder
-    params['command'] = f'./run_labse.py {prefix+".overlaps"}'
-    print(labse_run.format(**params))
-    subprocess.run(labse_run.format(**params), shell=True)
-
-    break 
+    if os.path.isfile(prefix+".emb") == False:
+        params['command'] = f'./run_labse.py {prefix+".overlaps"}'
+        subprocess.run(labse_run.format(**params), shell=True)
+ 
