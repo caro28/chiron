@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os, sys, glob
+import lxml
 import subprocess
 from tqdm import tqdm
 
@@ -44,8 +45,8 @@ for path in tqdm(glob.iglob("/scratch/craig.car/french_trans-dev/*.xml")):
     # Step 1: Extract from XML
     if os.path.isfile(prefix+".par") == False:
         params['command'] = f'./book-stream.py {path}'
-        print("starting on new file {prefix}")
-        subprocess.run(slurm_run.format(**params),shell=True)
+        print(f"starting on new file {prefix}")
+        subprocess.run(slurm_run.format(**params),shell=True,check=True)
 
     # Step 2: Clean XML output
     if os.path.isfile(prefix+".txt") == False:
