@@ -69,11 +69,4 @@ if __name__ == '__main__':
     
     prefix = os.path.splitext(sys.argv[1])[0]
     with open(prefix+".par", 'w') as sys.stdout:
-        try:
-            result = etree.parse(sys.argv[1], parser)
-        except:
-            sys.exit(1)
-
-    # file = "/home/dasmith/work/corpora/perseus/french_trans-dev/aeschylus_1863.xml"
-    # with open('/scratch/craig.car/test.par', 'w') as sys.stdout:
-    #     result = etree.parse(file, parser)
+        result = etree.parse(sys.argv[1], parser)

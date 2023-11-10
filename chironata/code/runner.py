@@ -23,19 +23,19 @@ labse_run = 'srun --partition=gpu --nodes=1 --pty --gres=gpu:v100-sxm2 --ntasks=
 #     if os.path.isfile(prefix+".sents") == False:
 #         params['command'] = f'./segment_sents.py {path} {lang}'
 #         print(f'started a run on file {prefix}')
-#         subprocess.run(slurm_run.format(**params),shell=True)
+#         subprocess.run(slurm_run.format(**params),shell=True,check=True)
     
 #     # # Step 2: Overlap builder
 #     if os.path.isfile(prefix+".overlaps") == False:
 #         params['command'] = f'./overlap.py {prefix+".sents"}'
 #         print("building overlaps")
-#         subprocess.run(labse_run.format(**params), shell=True)
+#         subprocess.run(labse_run.format(**params), shell=True,check=True)
     
 #     # # Step 3: Embedder
 #     if os.path.isfile(prefix+".emb") == False:
 #         params['command'] = f'./run_labse.py {prefix+".overlaps"}'
 #         print('labse run')
-#         subprocess.run(labse_run.format(**params), shell=True)
+#         subprocess.run(labse_run.format(**params), shell=True,check=True)
         
 for path in tqdm(glob.iglob("/scratch/craig.car/french_trans-dev/*.xml")):
     prefix = os.path.splitext(path)[0]
@@ -52,23 +52,23 @@ for path in tqdm(glob.iglob("/scratch/craig.car/french_trans-dev/*.xml")):
     if os.path.isfile(prefix+".txt") == False:
         params['command'] = f'./clean_par.py {prefix+".par"} {spacy_model_} {lang}'
         print("cleaning pars")
-        subprocess.run(slurm_run.format(**params),shell=True)
+        subprocess.run(slurm_run.format(**params),shell=True,check=True)
 
     # Step 3: Sentence Segmentation
     if os.path.isfile(prefix+".sents") == False:
         params['command'] = f'./segment_sents.py {prefix+".txt"} {lang}'
         print("splitting sents")
-        subprocess.run(slurm_run.format(**params),shell=True)
+        subprocess.run(slurm_run.format(**params),shell=True,check=True)
 
     # Step 2: Overlap builder
     if os.path.isfile(prefix+".overlaps") == False:
         params['command'] = f'./overlap.py {prefix+".sents"}'
         print("building overlaps")
-        subprocess.run(labse_run.format(**params), shell=True)
+        subprocess.run(labse_run.format(**params), shell=True,check=True)
     
     #Step 3: Embedder
     if os.path.isfile(prefix+".emb") == False:
         params['command'] = f'./run_labse.py {prefix+".overlaps"}'
         print('labse run')
-        subprocess.run(labse_run.format(**params), shell=True)
+        subprocess.run(labse_run.format(**params), shell=True,check=True)
  
