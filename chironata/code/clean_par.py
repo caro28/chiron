@@ -8,6 +8,12 @@ import spacy_fastlang
 from functions import load_txt_as_lst, write_file
 
 def clean_par(pars_lst, spacy_model, lang):
+    '''
+    1. Merges sections split during extraction from XML while filtering out
+    text in different language (e.g. for editions including original text).
+    2. Builds metadata in the form of a dict mapping the text's index to
+    section name. 
+    '''
     reconstructed = []
     section_idx2section_name = {}
     prev_meta = pars_lst[0].split("\t")[0]
@@ -52,6 +58,10 @@ if __name__ == '__main__':
 
     # write both to file
     prefix = os.path.splitext(file)[0]
-    write_file(clean_pars, prefix+".txt")
-    with open(prefix+".json", 'w') as fp:
-        json.dump(idx2section_name, fp)
+    # check for empty file
+    if len(clean_pars) != 0:
+        write_file(clean_pars, prefix+".txt")
+        with open(prefix+".json", 'w') as fp:
+            json.dump(idx2section_name, fp)
+    else:
+        raise SystemExit(f"empty file after clean_par.py for {prefix}")

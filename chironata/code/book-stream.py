@@ -9,7 +9,7 @@ from lxml import etree
 ## handle the case of section breaks in the middle of paragraphs.
 
 ## div types that contain main text or not
-goods = {'edition'}
+goods = {'edition', 'translation'}
 bads = {'commentary'}
 
 class BookStream(object):
