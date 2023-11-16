@@ -58,7 +58,7 @@ for path in tqdm(glob.iglob("/scratch/craig.car/french_trans-dev/*.xml")):
     if os.path.isfile(prefix+".sents") == False:
         params['command'] = f'./segment_sents.py {prefix+".txt"} {lang}'
         print("splitting sents")
-        subprocess.run(slurm_run.format(**params),shell=True,check=True)
+        subprocess.run(labse_run.format(**params),shell=True,check=True)
 
     # Step 2: Overlap builder
     if os.path.isfile(prefix+".overlaps") == False:

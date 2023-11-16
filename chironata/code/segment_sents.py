@@ -8,7 +8,15 @@ import pandas as pd
 from itertools import chain
 
 from functions import (
-    load_txt_as_lst, run_stanza, split_txt, flatten_list, write_file)
+    load_txt_as_lst, split_txt, flatten_list, write_file)
+
+def run_stanza(text_str, model_):
+    '''
+    returns sentences as list
+    '''
+    print("running stanza")
+    doc = model_(text_str)
+    return [sentence.text for sentence in doc.sentences]
 
 
 def segment_series(txt_str, lang, model):
@@ -67,7 +75,7 @@ if __name__ == "__main__":
     else:
         lang = sys.argv[2]
         # load stanza model
-        stanza_model = stanza.Pipeline(lang=lang, processors='tokenize')
+        stanza_model = stanza.Pipeline(lang=lang, processors='tokenize', use_gpu=True)
     
     print(f"lang is {lang}")
 
