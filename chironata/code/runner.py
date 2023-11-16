@@ -69,7 +69,7 @@ for path in tqdm(glob.iglob("/scratch/craig.car/src_data/*.txt")):
 #         params['command'] = f'./overlap.py {prefix+".sents"}'
 #         print("building overlaps")
 #         print("ran on fr")
-#         subprocess.run(labse_run.format(**params), shell=True,check=True)
+#         subprocess.run(overlaps_run.format(**params), shell=True,check=True)
     
 #     #Step 3: Embedder
 #     if os.path.isfile(prefix+".emb") == False:
