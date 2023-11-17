@@ -15,7 +15,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
-
+import sys, os
 import argparse
 import logging
 import pickle
@@ -40,6 +40,16 @@ from vecalign_dp_utils import make_alignment_types, print_alignments, read_align
 # to use our new scoring
 from score_all import score_multiple, log_final_scores
 
+## modified for chiron from print_alignments to write to file instead ##
+def write_alignments(alignments, scores, filename):
+    if scores is not None:
+        with open(filename, 'w') as f:
+            for (x, y), s in zip(alignments, scores):
+                f.write('%s:%s:%.6f\n' % (x, y, s))
+    else:
+        with open(filename, 'w') as sys.stdout:
+            for x, y in alignments:
+                f.write('%s:%s\n' % (x, y))
 
 def _main():
     # make runs consistent
@@ -133,8 +143,10 @@ def _main():
                          costs_sample_size=args.costs_sample_size,
                          num_samps_for_norm=args.num_samps_for_norm)
 
-        # write final alignments to stdout
-        print_alignments(stack[0]['final_alignments'], stack[0]['alignment_scores'])
+        ## modified for chiron: write final alignments to file
+        prefix = os.path.splitext(os.path.basename(sys.argv[6]))[0]
+        filename_ = "/home/craig.car/repos/chiron/chironata/data/alignments_rslts/"+prefix
+        write_alignments(stack[0]['final_alignments'], stack[0]['alignment_scores'], filename_+".rslts")
 
         test_alignments.append(stack[0]['final_alignments'])
         stack_list.append(stack)
