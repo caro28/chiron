@@ -72,10 +72,12 @@ if __name__ == "__main__":
     if "greek" in sys.argv[1]:
         lang = "el"
         stanza_model = ""
+    elif "latin" in sys.argv[1]:
+        lang = "la"
     else:
         lang = sys.argv[2]
-        # load stanza model
-        stanza_model = stanza.Pipeline(lang=lang, processors='tokenize', use_gpu=True)
+    # load stanza model
+    stanza_model = stanza.Pipeline(lang=lang, processors='tokenize', use_gpu=True)
     
     print(f"lang is {lang}")
 
