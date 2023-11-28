@@ -16,27 +16,27 @@ lxml_cpu = 'srun --time 1-0 --partition=short --nodes=1 --pty --mem=4G --time=00
 labse_vec_cpu = 'srun --partition=short --nodes=1 --pty --mem=4GB --time=01:00:00 /bin/bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate labse_vec_pipeline; {command};"'
 labse_vec_gpu = 'srun --partition=gpu --nodes=1 --pty --gres=gpu:v100-sxm2 --ntasks=1 --mem=4GB --time=01:00:00 /bin/bash -c "source /home/craig.car/miniconda3/bin/activate; conda activate labse_vec_pipeline; {command};"'
 
-for path in tqdm(glob.iglob("/scratch/craig.car/src_data/*.txt")):
-    prefix = os.path.splitext(path)[0]
-    lang = "src"
+# for path in tqdm(glob.iglob("/scratch/craig.car/src_data/*.txt")):
+#     prefix = os.path.splitext(path)[0]
+#     lang = "src"
     
-    # # Step 1: Sentence Segmentation
-    if os.path.isfile(prefix+".sents") == False:
-        params['command'] = f'./segment_sents.py {path} {lang}'
-        print(f'started a run on file {prefix}')
-        subprocess.run(labse_vec_gpu.format(**params),shell=True,check=True)
+#     # # Step 1: Sentence Segmentation
+#     if os.path.isfile(prefix+".sents") == False:
+#         params['command'] = f'./segment_sents.py {path} {lang}'
+#         print(f'started a run on file {prefix}')
+#         subprocess.run(labse_vec_gpu.format(**params),shell=True,check=True)
     
-    # # Step 2: Overlap builder
-    if os.path.isfile(prefix+".overlaps") == False:
-        params['command'] = f'./overlap.py {prefix+".sents"}'
-        print("building overlaps")
-        subprocess.run(labse_vec_cpu.format(**params), shell=True,check=True)
+#     # # Step 2: Overlap builder
+#     if os.path.isfile(prefix+".overlaps") == False:
+#         params['command'] = f'./overlap.py {prefix+".sents"}'
+#         print("building overlaps")
+#         subprocess.run(labse_vec_cpu.format(**params), shell=True,check=True)
     
-    # # Step 3: Embedder
-    if os.path.isfile(prefix+".emb") == False:
-        params['command'] = f'./run_labse.py {prefix+".overlaps"}'
-        print('labse run')
-        subprocess.run(labse_vec_gpu.format(**params), shell=True,check=True)
+#     # # Step 3: Embedder
+#     if os.path.isfile(prefix+".emb") == False:
+#         params['command'] = f'./run_labse.py {prefix+".overlaps"}'
+#         print('labse run')
+#         subprocess.run(labse_vec_gpu.format(**params), shell=True,check=True)
         
 # for path in tqdm(glob.iglob("/scratch/craig.car/french_trans-dev/*.xml")):
 #     prefix = os.path.splitext(path)[0]
@@ -77,4 +77,45 @@ for path in tqdm(glob.iglob("/scratch/craig.car/src_data/*.txt")):
 #         print('labse run')
 #         print("ran on fr")
 #         subprocess.run(labse_vec_gpu.format(**params), shell=True,check=True)
+ 
+
+for path in tqdm(glob.iglob("/scratch/craig.car/english_trans-dev/*.xml")):
+    prefix = os.path.splitext(path)[0]
+    lang = "en"
+    spacy_model_ = "en_core_web_sm"
+
+    # Step 1: Extract from XML
+    if os.path.isfile(prefix+".par") == False:
+        params['command'] = f'./book-stream.py {path}'
+        print(f"starting on new file {prefix}")
+        print("ran on en")
+        subprocess.run(lxml_cpu.format(**params),shell=True,check=True)
+
+    # Step 2: Clean XML output
+    if os.path.isfile(prefix+".txt") == False:
+        params['command'] = f'./clean_par.py {prefix+".par"} {spacy_model_} {lang}'
+        print("cleaning pars")
+        print("ran on en")
+        subprocess.run(lxml_cpu.format(**params),shell=True,check=True)
+
+    # Step 3: Sentence Segmentation
+    if os.path.isfile(prefix+".sents") == False:
+        params['command'] = f'./segment_sents.py {prefix+".txt"} {lang}'
+        print("splitting sents")
+        print("ran on en")
+        subprocess.run(labse_vec_gpu.format(**params),shell=True,check=True)
+
+    # Step 2: Overlap builder
+    if os.path.isfile(prefix+".overlaps") == False:
+        params['command'] = f'./overlap.py {prefix+".sents"}'
+        print("building overlaps")
+        print("ran on en")
+        subprocess.run(labse_vec_cpu.format(**params), shell=True,check=True)
+    
+    #Step 3: Embedder
+    if os.path.isfile(prefix+".emb") == False:
+        params['command'] = f'./run_labse.py {prefix+".overlaps"}'
+        print('labse run')
+        print("ran on en")
+        subprocess.run(labse_vec_gpu.format(**params), shell=True,check=True)
  
