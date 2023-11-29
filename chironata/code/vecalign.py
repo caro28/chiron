@@ -144,8 +144,10 @@ def _main():
                          num_samps_for_norm=args.num_samps_for_norm)
 
         ## modified for chiron: write final alignments to file
-        prefix = os.path.splitext(os.path.basename(sys.argv[6]))[0]
-        filename_ = "/home/craig.car/repos/chiron/chironata/data/alignments_rslts/"+prefix
+        tgt_prefix = os.path.splitext(os.path.basename(sys.argv[6]))[0]
+        src_prefix = os.path.splitext(os.path.basename(sys.argv[4]))[0]
+        filename_ = f"/home/craig.car/repos/chiron/chironata/data/alignments_rslts/{src_prefix}_{tgt_prefix}"
+        print(filename_)
         write_alignments(stack[0]['final_alignments'], stack[0]['alignment_scores'], filename_+".rslts")
 
         test_alignments.append(stack[0]['final_alignments'])
