@@ -1,9 +1,9 @@
 # Chiron
 Chiron is a tool for aligning pre-modern and literary texts with translations in multiple languages.
 
-## Align Texts Project
+## Chironata (in progress)
 * Create an annotated dataset using LaBSE and Vecalign.
-* Code and data saved in [align_texts_project](https://github.com/caro28/chiron/tree/main/align_texts_project)
+* Code and data saved in [chironata](https://github.com/caro28/chiron/tree/main/chironata)
 
 ## Pipeline models
 1. LaBSE, Feng et al. (2020)
@@ -45,10 +45,10 @@ Chiron is a tool for aligning pre-modern and literary texts with translations in
 ### Chapter-level evaluation if sentence-level ground truth not available
 * Example file: score_vec_rslts_chapter_level.ipynb
 * Example based on aligning Thucydides' *The Peloponnesian War* against a [French translation](https://github.com/OpenGreekAndLatin/french_trans-dev/blob/master/thucydides_1863.xml)
-* *Will upload data files*
 
-## Related experiments
-*Coming soon: folder with code, data, results of "background experiments" run on Crito and Thucydides, using LASER and LaBSE.*
+## Testing Chiron
+* Caroline Craig, Kartik Goyal, Gregory R. Crane, Farnoosh Shamsian, and David A. Smith. Testing the limits of neural sentence alignment models on classical Greek and Latin texts and translations. In _Computational Humanities Research Conference_ (CHR), 2023.
+* Code and data available in [align_texts_projects](https://github.com/caro28/chiron/tree/main/align_texts_project)
 
 ## Installation
 1. To use LaBSE, see instructions on [Hugging Face](https://huggingface.co/sentence-transformers/LaBSE#usage-sentence-transformers)
