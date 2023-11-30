@@ -45,9 +45,9 @@ Chiron is a tool for aligning pre-modern and literary texts with translations in
 ### Chapter-level evaluation if sentence-level ground truth not available
 * Example file: score_vec_rslts_chapter_level.ipynb
 * Example based on aligning Thucydides' *The Peloponnesian War* against a [French translation](https://github.com/OpenGreekAndLatin/french_trans-dev/blob/master/thucydides_1863.xml)
+  
 ## Testing Chiron
-* Caroline Craig, Kartik Goyal, Gregory R. Crane, Farnoosh Shamsian, and David A. Smith. Testing the limits of neural sentence alignment models on classical Greek and Latin texts and translations. In _Computational Humanities Research Conference_ (CHR), 2023.[PDF](https://ceur-ws.org/Vol-3558/paper6193.pdf)
-
+* Caroline Craig, Kartik Goyal, Gregory R. Crane, Farnoosh Shamsian, and David A. Smith. Testing the limits of neural sentence alignment models on classical Greek and Latin texts and translations. In _Computational Humanities Research Conference_ (CHR), 2023. [PDF](https://ceur-ws.org/Vol-3558/paper6193.pdf)
 * Code and data available in [align_texts_projects](https://github.com/caro28/chiron/tree/main/align_texts_project)
 
 ## Installation
