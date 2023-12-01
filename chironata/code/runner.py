@@ -39,45 +39,45 @@ labse_vec_gpu = 'srun --partition=gpu --nodes=1 --pty --gres=gpu:v100-sxm2 --nta
 #         subprocess.run(labse_vec_gpu.format(**params), shell=True,check=True)
         
 # for path in tqdm(glob.iglob("/scratch/craig.car/french_trans-dev/*.xml")):
-# for path in tqdm(glob.iglob("/scratch/craig.car/french_trans-dev/as_yet_unedited_DDD/*.xml")):
-#     prefix = os.path.splitext(path)[0]
-#     lang = "fr"
-#     spacy_model_ = "fr_core_news_sm"
+for path in tqdm(glob.iglob("/scratch/craig.car/french_trans-dev/as_yet_unedited_DDD/*.xml")):
+    prefix = os.path.splitext(path)[0]
+    lang = "fr"
+    spacy_model_ = "fr_core_news_sm"
 
-#     # Step 1: Extract from XML
-#     if os.path.isfile(prefix+".par") == False:
-#         params['command'] = f'./book-stream.py {path}'
-#         print(f"starting on new file {prefix}")
-#         print("ran on fr")
-#         subprocess.run(lxml_cpu.format(**params),shell=True,check=True)
+    # Step 1: Extract from XML
+    if os.path.isfile(prefix+".par") == False:
+        params['command'] = f'./book-stream.py {path}'
+        print(f"starting on new file {prefix}")
+        print("ran on fr")
+        subprocess.run(lxml_cpu.format(**params),shell=True,check=True)
 
-#     # Step 2: Clean XML output
-#     if os.path.isfile(prefix+".txt") == False:
-#         params['command'] = f'./clean_par.py {prefix+".par"} {spacy_model_} {lang}'
-#         print("cleaning pars")
-#         print("ran on fr")
-#         subprocess.run(lxml_cpu.format(**params),shell=True,check=True)
+    # Step 2: Clean XML output
+    if os.path.isfile(prefix+".txt") == False:
+        params['command'] = f'./clean_par.py {prefix+".par"} {spacy_model_} {lang}'
+        print("cleaning pars")
+        print("ran on fr")
+        subprocess.run(lxml_cpu.format(**params),shell=True,check=True)
 
-#     # Step 3: Sentence Segmentation
-#     if os.path.isfile(prefix+".sents") == False:
-#         params['command'] = f'./segment_sents.py {prefix+".txt"} {lang}'
-#         print("splitting sents")
-#         print("ran on fr")
-#         subprocess.run(labse_vec_gpu.format(**params),shell=True,check=True)
+    # Step 3: Sentence Segmentation
+    if os.path.isfile(prefix+".sents") == False:
+        params['command'] = f'./segment_sents.py {prefix+".txt"} {lang}'
+        print("splitting sents")
+        print("ran on fr")
+        subprocess.run(labse_vec_gpu.format(**params),shell=True,check=True)
 
-#     # Step 2: Overlap builder
-#     if os.path.isfile(prefix+".overlaps") == False:
-#         params['command'] = f'./overlap.py {prefix+".sents"}'
-#         print("building overlaps")
-#         print("ran on fr")
-#         subprocess.run(labse_vec_cpu.format(**params), shell=True,check=True)
+    # Step 2: Overlap builder
+    if os.path.isfile(prefix+".overlaps") == False:
+        params['command'] = f'./overlap.py {prefix+".sents"}'
+        print("building overlaps")
+        print("ran on fr")
+        subprocess.run(labse_vec_cpu.format(**params), shell=True,check=True)
     
-#     #Step 3: Embedder
-#     if os.path.isfile(prefix+".emb") == False:
-#         params['command'] = f'./run_labse.py {prefix+".overlaps"}'
-#         print('labse run')
-#         print("ran on fr")
-#         subprocess.run(labse_vec_gpu.format(**params), shell=True,check=True)
+    #Step 3: Embedder
+    if os.path.isfile(prefix+".emb") == False:
+        params['command'] = f'./run_labse.py {prefix+".overlaps"}'
+        print('labse run')
+        print("ran on fr")
+        subprocess.run(labse_vec_gpu.format(**params), shell=True,check=True)
  
 
 # for path in tqdm(glob.iglob("/scratch/craig.car/english_trans-dev/*.xml")):
@@ -121,6 +121,7 @@ labse_vec_gpu = 'srun --partition=gpu --nodes=1 --pty --gres=gpu:v100-sxm2 --nta
 #         subprocess.run(labse_vec_gpu.format(**params), shell=True,check=True)
  
 # for path in tqdm(glob.iglob("/scratch/craig.car/italian_trans-dev/as_yet_unedited_DDD/*.xml")):
+# for path in tqdm(glob.iglob("/scratch/craig.car/italian_trans-dev/*.xml")):
 #     prefix = os.path.splitext(path)[0]
 #     lang = "it"
 #     spacy_model_ = "it_core_news_sm"
@@ -161,42 +162,42 @@ labse_vec_gpu = 'srun --partition=gpu --nodes=1 --pty --gres=gpu:v100-sxm2 --nta
 #         subprocess.run(labse_vec_gpu.format(**params), shell=True,check=True)
 
 
-for path in tqdm(glob.iglob("/scratch/craig.car/german_trans-dev/*.xml")):
-    prefix = os.path.splitext(path)[0]
-    lang = "de"
-    spacy_model_ = "de_core_news_sm"
+# for path in tqdm(glob.iglob("/scratch/craig.car/german_trans-dev/*.xml")):
+#     prefix = os.path.splitext(path)[0]
+#     lang = "de"
+#     spacy_model_ = "de_core_news_sm"
 
-    # Step 1: Extract from XML
-    if os.path.isfile(prefix+".par") == False:
-        params['command'] = f'./book-stream.py {path}'
-        print(f"starting on new file {prefix}")
-        print("ran on de")
-        subprocess.run(lxml_cpu.format(**params),shell=True,check=True)
+#     # Step 1: Extract from XML
+#     if os.path.isfile(prefix+".par") == False:
+#         params['command'] = f'./book-stream.py {path}'
+#         print(f"starting on new file {prefix}")
+#         print("ran on de")
+#         subprocess.run(lxml_cpu.format(**params),shell=True,check=True)
 
-    # Step 2: Clean XML output
-    if os.path.isfile(prefix+".txt") == False:
-        params['command'] = f'./clean_par.py {prefix+".par"} {spacy_model_} {lang}'
-        print("cleaning pars")
-        print("ran on de")
-        subprocess.run(lxml_cpu.format(**params),shell=True,check=True)
+#     # Step 2: Clean XML output
+#     if os.path.isfile(prefix+".txt") == False:
+#         params['command'] = f'./clean_par.py {prefix+".par"} {spacy_model_} {lang}'
+#         print("cleaning pars")
+#         print("ran on de")
+#         subprocess.run(lxml_cpu.format(**params),shell=True,check=True)
 
-    # Step 3: Sentence Segmentation
-    if os.path.isfile(prefix+".sents") == False:
-        params['command'] = f'./segment_sents.py {prefix+".txt"} {lang}'
-        print("splitting sents")
-        print("ran on de")
-        subprocess.run(labse_vec_gpu.format(**params),shell=True,check=True)
+#     # Step 3: Sentence Segmentation
+#     if os.path.isfile(prefix+".sents") == False:
+#         params['command'] = f'./segment_sents.py {prefix+".txt"} {lang}'
+#         print("splitting sents")
+#         print("ran on de")
+#         subprocess.run(labse_vec_gpu.format(**params),shell=True,check=True)
 
-    # Step 2: Overlap builder
-    if os.path.isfile(prefix+".overlaps") == False:
-        params['command'] = f'./overlap.py {prefix+".sents"}'
-        print("building overlaps")
-        print("ran on de")
-        subprocess.run(labse_vec_cpu.format(**params), shell=True,check=True)
+#     # Step 2: Overlap builder
+#     if os.path.isfile(prefix+".overlaps") == False:
+#         params['command'] = f'./overlap.py {prefix+".sents"}'
+#         print("building overlaps")
+#         print("ran on de")
+#         subprocess.run(labse_vec_cpu.format(**params), shell=True,check=True)
     
-    #Step 3: Embedder
-    if os.path.isfile(prefix+".emb") == False:
-        params['command'] = f'./run_labse.py {prefix+".overlaps"}'
-        print('labse run')
-        print("ran on de")
-        subprocess.run(labse_vec_gpu.format(**params), shell=True,check=True)
+#     #Step 3: Embedder
+#     if os.path.isfile(prefix+".emb") == False:
+#         params['command'] = f'./run_labse.py {prefix+".overlaps"}'
+#         print('labse run')
+#         print("ran on de")
+#         subprocess.run(labse_vec_gpu.format(**params), shell=True,check=True)
