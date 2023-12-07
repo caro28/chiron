@@ -137,3 +137,24 @@ def get_perseus_txt_by_book(df, cts_tag, num_books):
         idx_counter += 1
     return txt_by_book, idx2book_name
 
+def read_alignments(fin):
+    """
+    function built by vecalign. see:
+    https://github.com/caro28/vecalign/blob/master/dp_utils.py
+    """
+    alignments = []
+    with open(fin, 'rt', encoding="utf-8") as infile:
+        for line in infile:
+            fields = [x.strip() for x in line.split(':') if len(x.strip())]
+            if len(fields) < 2:
+                raise Exception('Got line "%s", which does not have at least two ":" separated fields' % line.strip())
+            try:
+                src = literal_eval(fields[0])
+                tgt = literal_eval(fields[1])
+            except:
+                raise Exception('Failed to parse line "%s"' % line.strip())
+            alignments.append((src, tgt))
+
+    # I know bluealign files have a few entries entries missing,
+    #   but I don't fix them in order to be consistent previous reported scores
+    return alignments
