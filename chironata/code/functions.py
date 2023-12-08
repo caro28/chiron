@@ -1,6 +1,8 @@
 import re
 import pandas as pd
 from itertools import chain
+from ast import literal_eval
+from collections import defaultdict
 
 def load_txt_as_lst(path_in):
     output_lst = []
