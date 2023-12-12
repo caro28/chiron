@@ -1,1 +1,1 @@
-{"num_src_sents": 1234, "num_translations": 1, "text_top1": 0, "text_top5": 0, "text_top10": 0}
+{"num_src_sents": 1234, "tlg0640.tlg001.ogl-eng1": {"tgt_lang": "en", "transl_top1": 0.03079416531604538, "transl_top5": 0.055105348460291734, "transl_top10": 0.07455429497568881, "num_nulls": 0, "num_tgt_sents": 1551}, "num_translations": 2, "text_top1": 0.01539708265802269, "text_top5": 0.027552674230145867, "text_top10": 0.03727714748784441}
