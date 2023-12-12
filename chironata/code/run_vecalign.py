@@ -26,6 +26,9 @@ for src_emb in glob.iglob(src_dir+"*.emb"):
     src_prefix = src_dir+ctsurn
     tgt_files = lookup_table[ctsurn]
     for tgt_name in tgt_files:
+        # if tgt_name.endswith(".xml"):
+        #     tgt_name = tgt_name.split(".xml")[0]
+        #     print(tgt_name)
         tgt_prefix = tgt_dir+tgt_name
         # check if an emb file exists for this translation exists
         if os.path.isfile(tgt_prefix+".emb") != False: 
