@@ -1,0 +1,1 @@
+{"num_src_sents": 240, "plutarch_1898_ethical": {"tgt_lang": "en", "transl_top1": 0.6125, "transl_top5": 0.7541666666666667, "transl_top10": 0.8041666666666667, "num_nulls": 0, "num_tgt_sents": 5242}, "num_translations": 1, "text_top1": 0.6125, "text_top5": 0.7541666666666667, "text_top10": 0.8041666666666667}

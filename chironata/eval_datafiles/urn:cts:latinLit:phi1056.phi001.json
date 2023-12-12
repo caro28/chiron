@@ -1,0 +1,1 @@
+{"num_src_sents": 3069, "vitruvius_1865": {"tgt_lang": "de", "transl_top1": 0.7295536005213424, "transl_top5": 0.8647768002606713, "transl_top10": 0.9090909090909091, "num_nulls": 1, "num_tgt_sents": 2907}, "num_translations": 1, "text_top1": 0.7295536005213424, "text_top5": 0.8647768002606713, "text_top10": 0.9090909090909091}

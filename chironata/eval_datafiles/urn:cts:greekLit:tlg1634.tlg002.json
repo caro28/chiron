@@ -1,0 +1,1 @@
+{"num_src_sents": 158, "sophistesGrecs_1842": {"tgt_lang": "fr", "transl_top1": 0.012658227848101266, "transl_top5": 0.056962025316455694, "transl_top10": 0.12658227848101267, "num_nulls": 0, "num_tgt_sents": 7988}, "num_translations": 1, "text_top1": 0.012658227848101266, "text_top5": 0.056962025316455694, "text_top10": 0.12658227848101267}

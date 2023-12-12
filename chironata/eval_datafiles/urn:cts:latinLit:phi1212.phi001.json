@@ -1,0 +1,1 @@
+{"num_src_sents": 1314, "apuleius_1878": {"tgt_lang": "en", "transl_top1": 0.7054794520547946, "transl_top5": 0.898021308980213, "transl_top10": 0.9535768645357686, "num_nulls": 0, "num_tgt_sents": 8847}, "num_translations": 1, "text_top1": 0.7054794520547946, "text_top5": 0.898021308980213, "text_top10": 0.9535768645357686}

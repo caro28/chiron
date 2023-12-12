@@ -1,0 +1,1 @@
+{"num_src_sents": 6062, "aesopHesiodQuintus_1865-1866": {"tgt_lang": "de", "transl_top1": 0.0006598482349059716, "transl_top5": 0.0064335202903332235, "transl_top10": 0.012042230287033983, "num_nulls": 1, "num_tgt_sents": 7368}, "num_translations": 1, "text_top1": 0.0006598482349059716, "text_top5": 0.0064335202903332235, "text_top10": 0.012042230287033983}

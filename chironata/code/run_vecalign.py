@@ -27,7 +27,7 @@ for src_emb in glob.iglob(src_dir+"*.emb"):
     tgt_files = lookup_table[ctsurn]
     for tgt_name in tgt_files:
         tgt_prefix = tgt_dir+tgt_name
-        # check if a fr translation exists
+        # check if an emb file exists for this translation exists
         if os.path.isfile(tgt_prefix+".emb") != False: 
             params['command'] = f'./vecalign.py --alignment_max_size 8 --src {src_prefix+".sents"} --tgt {tgt_prefix+".sents"} --src_embed {src_prefix+".overlaps"} {src_emb} --tgt_embed {tgt_prefix+".overlaps"} {tgt_prefix+".emb"}'
             # print(labse_vec_cpu.format(**params))

@@ -1,0 +1,1 @@
+{"num_src_sents": 6047, "euclid_1_1899": {"tgt_lang": "it", "transl_top1": 0.007607077889862742, "transl_top5": 0.01967917975855796, "transl_top10": 0.027617000165371258, "num_nulls": 3, "num_tgt_sents": 9272}, "num_translations": 1, "text_top1": 0.007607077889862742, "text_top5": 0.01967917975855796, "text_top10": 0.027617000165371258}

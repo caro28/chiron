@@ -1,0 +1,1 @@
+{"num_src_sents": 6171, "epictetus_1862": {"tgt_lang": "fr", "transl_top1": 0.3859990277102577, "transl_top5": 0.5793226381461676, "transl_top10": 0.6643979906011992, "num_nulls": 6, "num_tgt_sents": 9106}, "num_translations": 1, "text_top1": 0.3859990277102577, "text_top5": 0.5793226381461676, "text_top10": 0.6643979906011992}

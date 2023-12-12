@@ -1,0 +1,1 @@
+{"num_src_sents": 204, "lucian_1829_10": {"tgt_lang": "de", "transl_top1": 0.3480392156862745, "transl_top5": 0.5441176470588235, "transl_top10": 0.696078431372549, "num_nulls": 0, "num_tgt_sents": 4222}, "num_translations": 1, "text_top1": 0.3480392156862745, "text_top5": 0.5441176470588235, "text_top10": 0.696078431372549}

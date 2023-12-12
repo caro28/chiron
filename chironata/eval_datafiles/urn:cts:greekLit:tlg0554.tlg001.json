@@ -1,0 +1,1 @@
+{"num_src_sents": 1957, "chariton_1913": {"tgt_lang": "it", "transl_top1": 0.6990291262135923, "transl_top5": 0.8998467041389883, "transl_top10": 0.9683188553909045, "num_nulls": 1, "num_tgt_sents": 5498}, "num_translations": 2, "text_top1": 0.34951456310679613, "text_top5": 0.44992335206949413, "text_top10": 0.4841594276954522}

@@ -1,0 +1,1 @@
+{"num_src_sents": 1382, "apollodorus_1826": {"tgt_lang": "it", "transl_top1": 0.4609261939218524, "transl_top5": 0.6606367583212736, "transl_top10": 0.7351664254703328, "num_nulls": 0, "num_tgt_sents": 5093}, "num_translations": 1, "text_top1": 0.4609261939218524, "text_top5": 0.6606367583212736, "text_top10": 0.7351664254703328}

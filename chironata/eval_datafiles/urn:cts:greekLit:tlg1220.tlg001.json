@@ -1,0 +1,1 @@
+{"num_src_sents": 93, "anacreon_1870": {"tgt_lang": "de", "transl_top1": 0.13978494623655913, "transl_top5": 0.3225806451612903, "transl_top10": 0.41935483870967744, "num_nulls": 0, "num_tgt_sents": 5470}, "num_translations": 1, "text_top1": 0.13978494623655913, "text_top5": 0.3225806451612903, "text_top10": 0.41935483870967744}

@@ -1,0 +1,1 @@
+{"num_src_sents": 368, "luca_siliusItalicus_claudius_1842": {"tgt_lang": "fr", "transl_top1": 0.29891304347826086, "transl_top5": 0.44565217391304346, "transl_top10": 0.5244565217391305, "num_nulls": 0, "num_tgt_sents": 20880}, "num_translations": 1, "text_top1": 0.29891304347826086, "text_top5": 0.44565217391304346, "text_top10": 0.5244565217391305}

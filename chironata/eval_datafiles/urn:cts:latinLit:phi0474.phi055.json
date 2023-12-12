@@ -1,0 +1,1 @@
+{"num_src_sents": 2011, "cicero_1874": {"tgt_lang": "en", "transl_top1": 0.7762307309796121, "transl_top5": 0.9453008453505719, "transl_top10": 0.9875683739433118, "num_nulls": 0, "num_tgt_sents": 5692}, "num_translations": 1, "text_top1": 0.7762307309796121, "text_top5": 0.9453008453505719, "text_top10": 0.9875683739433118}

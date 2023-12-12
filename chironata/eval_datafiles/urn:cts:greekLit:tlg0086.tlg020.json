@@ -1,0 +1,1 @@
+{"num_src_sents": 77, "aristotle_1855-1906_6": {"tgt_lang": "de", "transl_top1": 0.012987012987012988, "transl_top5": 0.1038961038961039, "transl_top10": 0.11688311688311688, "num_nulls": 0, "num_tgt_sents": 8895}, "num_translations": 1, "text_top1": 0.012987012987012988, "text_top5": 0.1038961038961039, "text_top10": 0.11688311688311688}

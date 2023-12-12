@@ -1,0 +1,1 @@
+{"num_src_sents": 133, "plutarch_nd": {"tgt_lang": "de", "transl_top1": 0.40601503759398494, "transl_top5": 0.556390977443609, "transl_top10": 0.6165413533834586, "num_nulls": 0, "num_tgt_sents": 10643}, "num_translations": 1, "text_top1": 0.40601503759398494, "text_top5": 0.556390977443609, "text_top10": 0.6165413533834586}

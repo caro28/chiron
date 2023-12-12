@@ -1,0 +1,1 @@
+{"num_src_sents": 508, "plutarch_1898_theosophical": {"tgt_lang": "en", "transl_top1": 0.5019685039370079, "transl_top5": 0.6929133858267716, "transl_top10": 0.765748031496063, "num_nulls": 0, "num_tgt_sents": 3608}, "num_translations": 1, "text_top1": 0.5019685039370079, "text_top5": 0.6929133858267716, "text_top10": 0.765748031496063}

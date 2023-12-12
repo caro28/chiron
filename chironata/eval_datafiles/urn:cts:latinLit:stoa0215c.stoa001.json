@@ -1,0 +1,1 @@
+{"num_src_sents": 4074, "alfredGreat_orosius_1873": {"tgt_lang": "en", "transl_top1": 0.004418262150220913, "transl_top5": 0.009818360333824251, "transl_top10": 0.01644575355915562, "num_nulls": 4, "num_tgt_sents": 5828}, "num_translations": 1, "text_top1": 0.004418262150220913, "text_top5": 0.009818360333824251, "text_top10": 0.01644575355915562}

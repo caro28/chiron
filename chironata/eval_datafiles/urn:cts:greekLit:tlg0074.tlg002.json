@@ -1,0 +1,1 @@
+{"num_src_sents": 550, "arrian_1862": {"tgt_lang": "de", "transl_top1": 0.44363636363636366, "transl_top5": 0.6236363636363637, "transl_top10": 0.7109090909090909, "num_nulls": 0, "num_tgt_sents": 10359}, "num_translations": 1, "text_top1": 0.44363636363636366, "text_top5": 0.6236363636363637, "text_top10": 0.7109090909090909}

@@ -1,0 +1,1 @@
+{"num_src_sents": 276, "seneca_1877": {"tgt_lang": "fr", "transl_top1": 0.427536231884058, "transl_top5": 0.5507246376811594, "transl_top10": 0.5797101449275363, "num_nulls": 8, "num_tgt_sents": 29079}, "num_translations": 1, "text_top1": 0.427536231884058, "text_top5": 0.5507246376811594, "text_top10": 0.5797101449275363}

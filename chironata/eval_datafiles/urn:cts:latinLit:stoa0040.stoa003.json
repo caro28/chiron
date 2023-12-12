@@ -1,0 +1,1 @@
+{"num_src_sents": 17454, "Augustine-cityofgodtransla02auguuoft": {"tgt_lang": "en", "transl_top1": 0.3014208777357626, "transl_top5": 0.38959550819296435, "transl_top10": 0.41858599747908787, "num_nulls": 7195, "num_tgt_sents": 9020}, "num_translations": 1, "text_top1": 0.3014208777357626, "text_top5": 0.38959550819296435, "text_top10": 0.41858599747908787}

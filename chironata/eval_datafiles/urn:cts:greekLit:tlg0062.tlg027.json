@@ -1,0 +1,1 @@
+{"num_src_sents": 47, "luciusSamosata_1_1869": {"tgt_lang": "fr", "transl_top1": 0.1702127659574468, "transl_top5": 0.2765957446808511, "transl_top10": 0.3404255319148936, "num_nulls": 0, "num_tgt_sents": 14187}, "num_translations": 1, "text_top1": 0.1702127659574468, "text_top5": 0.2765957446808511, "text_top10": 0.3404255319148936}

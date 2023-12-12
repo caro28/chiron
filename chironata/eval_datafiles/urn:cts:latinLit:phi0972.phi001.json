@@ -1,0 +1,1 @@
+{"num_src_sents": 2278, "petronius_1906": {"tgt_lang": "de", "transl_top1": 0.2080772607550483, "transl_top5": 0.3494293239683933, "transl_top10": 0.3784021071115013, "num_nulls": 0, "num_tgt_sents": 6669}, "num_translations": 1, "text_top1": 0.2080772607550483, "text_top5": 0.3494293239683933, "text_top10": 0.3784021071115013}

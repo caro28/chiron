@@ -1,0 +1,1 @@
+{"num_src_sents": 154, "suetonius_1855-1897": {"tgt_lang": "de", "transl_top1": 0.6298701298701299, "transl_top5": 0.7792207792207793, "transl_top10": 0.8441558441558441, "num_nulls": 0, "num_tgt_sents": 5120}, "num_translations": 1, "text_top1": 0.6298701298701299, "text_top5": 0.7792207792207793, "text_top10": 0.8441558441558441}

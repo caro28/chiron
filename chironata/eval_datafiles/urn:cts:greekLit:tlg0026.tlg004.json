@@ -1,0 +1,1 @@
+{"num_src_sents": 138, "demosthenes_aeschynes_1861": {"tgt_lang": "fr", "transl_top1": 0.0, "transl_top5": 0.057971014492753624, "transl_top10": 0.08695652173913043, "num_nulls": 0, "num_tgt_sents": 36182}, "num_translations": 1, "text_top1": 0.0, "text_top5": 0.057971014492753624, "text_top10": 0.08695652173913043}

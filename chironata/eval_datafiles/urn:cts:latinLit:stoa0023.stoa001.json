@@ -1,0 +1,1 @@
+{"num_src_sents": 5114, "ammianusMarcellinus_1894": {"tgt_lang": "en", "transl_top1": 0.6826359014470083, "transl_top5": 0.8335940555338287, "transl_top10": 0.8822839264763395, "num_nulls": 0, "num_tgt_sents": 10074}, "num_translations": 1, "text_top1": 0.6826359014470083, "text_top5": 0.8335940555338287, "text_top10": 0.8822839264763395}

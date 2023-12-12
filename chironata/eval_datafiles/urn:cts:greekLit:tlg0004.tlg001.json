@@ -1,0 +1,1 @@
+{"num_src_sents": 6440, "diogenesLaertius_1853": {"tgt_lang": "en", "transl_top1": 0.4357142857142857, "transl_top5": 0.654192546583851, "transl_top10": 0.7368012422360248, "num_nulls": 3, "num_tgt_sents": 11907}, "num_translations": 1, "text_top1": 0.4357142857142857, "text_top5": 0.654192546583851, "text_top10": 0.7368012422360248}

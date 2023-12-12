@@ -1,0 +1,1 @@
+{"num_src_sents": 77, "lysias_1856": {"tgt_lang": "de", "transl_top1": 0.4025974025974026, "transl_top5": 0.5454545454545454, "transl_top10": 0.6493506493506493, "num_nulls": 0, "num_tgt_sents": 5319}, "num_translations": 1, "text_top1": 0.4025974025974026, "text_top5": 0.5454545454545454, "text_top10": 0.6493506493506493}
