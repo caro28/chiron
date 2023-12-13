@@ -48,7 +48,7 @@ def _main():
     parser.add_argument('-o', '--output', type=str,
                         help='output text file containing overlapping sentneces')
 
-    parser.add_argument('-n', '--num_overlaps', type=int, default=4,
+    parser.add_argument('-n', '--num_overlaps', type=int, default=10,
                         help='Maximum number of allowed overlaps.')
 
     args = parser.parse_args()
