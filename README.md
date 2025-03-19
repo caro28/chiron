@@ -1,7 +1,7 @@
 # Chiron
 Chiron is a tool for aligning pre-modern and literary texts with translations in multiple languages.
 
-## Chironata (in progress)
+## Chironata
 * Create an annotated dataset using LaBSE and Vecalign.
 * Code and data saved in [chironata](https://github.com/caro28/chiron/tree/main/chironata)
 
